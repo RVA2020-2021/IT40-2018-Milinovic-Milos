@@ -3,6 +3,7 @@ package rva.jpa;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -12,14 +13,14 @@ import java.util.List;
  * The persistent class for the smijer database table.
  * 
  */
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @NamedQuery(name="Smijer.findAll", query="SELECT s FROM Smijer s")
 public class Smijer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="SMIJER_ID_GENERATOR", sequenceName="SMIJER_SEQ")
+	@SequenceGenerator(name="SMIJER_ID_GENERATOR", sequenceName="SMIJER_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SMIJER_ID_GENERATOR")
 	private Integer id;
 
@@ -29,6 +30,7 @@ public class Smijer implements Serializable {
 
 	//bi-directional many-to-one association to Grupa
 	@OneToMany(mappedBy="smijer")
+	@JsonIgnore
 	private List<Grupa> grupas;
 
 	public Smijer() {

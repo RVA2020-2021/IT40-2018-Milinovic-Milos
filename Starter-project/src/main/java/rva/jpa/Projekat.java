@@ -3,6 +3,7 @@ package rva.jpa;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
@@ -12,14 +13,14 @@ import java.util.List;
  * The persistent class for the projekat database table.
  * 
  */
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @NamedQuery(name="Projekat.findAll", query="SELECT p FROM Projekat p")
 public class Projekat implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="PROJEKAT_ID_GENERATOR", sequenceName="PROJEKAT_SEQ")
+	@SequenceGenerator(name="PROJEKAT_ID_GENERATOR", sequenceName="PROJEKAT_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PROJEKAT_ID_GENERATOR")
 	private Integer id;
 
@@ -31,6 +32,7 @@ public class Projekat implements Serializable {
 
 	//bi-directional many-to-one association to Student
 	@OneToMany(mappedBy="projekat")
+	@JsonIgnore
 	private List<Student> students;
 
 	public Projekat() {

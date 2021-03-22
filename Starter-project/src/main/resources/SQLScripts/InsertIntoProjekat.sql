@@ -3,7 +3,7 @@
 insert into smijer ("id","naziv","oznaka")
 values(nextval('smijer_seq'),'Inzinjerstvo informacionih sistema','IT');
 insert into smijer ("id","naziv","oznaka")
-values(nextval('smijer_seq')'Informacioni inzinjering','IN');
+values(nextval('smijer_seq'), 'Informacioni inzinjering','IN');
 insert into smijer ("id","naziv","oznaka")
 values(nextval('smijer_seq'),'Softversko inzinjerstvo i informacione tehnologije','SIIT');
 insert into smijer ("id","naziv","oznaka")
@@ -17,7 +17,7 @@ select * from smijer;
 --GRUPA podaci
 
 insert into grupa ("id","oznaka","smijer")
-values(nextval('grupa_seq'),'IT',1);
+values(nextval('grupa_seq'),'IT',2);
 insert into grupa ("id","oznaka","smijer")
 values(nextval('grupa_seq'),'IN',2);
 insert into grupa ("id","oznaka","smijer")
@@ -47,12 +47,12 @@ values(nextval('projekat_seq'),'Primjenjeno softversko inzinjerstvo','PR','Studi
 select * from projekat;
 
 
-select * from student;
+
 
 --Student podaci
 
 insert into student ("id","ime","prezime","broj_indeksa","grupa","projekat")
-values(nextval('student_seq'),'Milos','Milinovic','IT40/2018',1,3);
+values(nextval('student_seq'),'Milos','Milinovic','IT40/2018',2,3);
 insert into student ("id","ime","prezime","broj_indeksa","grupa","projekat")
 values(nextval('student_seq'),'Dragan','Majkic','IT32/2018',2,4);
 insert into student ("id","ime","prezime","broj_indeksa","grupa","projekat")
@@ -62,3 +62,4 @@ values(nextval('student_seq'),'Branimir','Prodic','IT28/2018',5,3);
 insert into student ("id","ime","prezime","broj_indeksa","grupa","projekat")
 values(nextval('student_seq'),'Stefan','Fink','IT37/2018',3,5);
 
+select * from student;

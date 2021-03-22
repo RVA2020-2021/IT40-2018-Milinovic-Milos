@@ -13,8 +13,8 @@ import java.util.List;
  * The persistent class for the grupa database table.
  * 
  */
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @NamedQuery(name="Grupa.findAll", query="SELECT g FROM Grupa g")
 public class Grupa implements Serializable {
 	private static final long serialVersionUID = 1L;
