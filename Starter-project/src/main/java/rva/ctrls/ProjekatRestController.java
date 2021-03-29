@@ -34,18 +34,18 @@ public class ProjekatRestController {
 	
 	
 	
-	@GetMapping("dobavljac/{id}")
+	@GetMapping("projekat/{id}")
 	public Projekat getProjekat(@PathVariable Integer id) {
 		return projekatRepository.getOne(id);
 	}
 
 	@GetMapping("projekatNaziv/{naziv}")
-	public Collection<Projekat> getDobavljacByNaziv(@PathVariable String naziv){
+	public Collection<Projekat> getProjekatByNaziv(@PathVariable String naziv){
 		return projekatRepository.findByNazivContainingIgnoreCase(naziv);
 	}
 	
 	@PostMapping("projekat")
-	public ResponseEntity<Projekat> insertDobavljac(@RequestBody Projekat projekat){
+	public ResponseEntity<Projekat> insertProjekat(@RequestBody Projekat projekat){
 		if(!projekatRepository.existsById(projekat.getId())) {
 			projekatRepository.save(projekat);
 			return new ResponseEntity<Projekat>(HttpStatus.OK);
@@ -54,7 +54,7 @@ public class ProjekatRestController {
 	}
 	
 	@PutMapping("projekat")
-	public ResponseEntity<Projekat> updateDobavljac(@RequestBody Projekat projekat){
+	public ResponseEntity<Projekat> updateProjekat(@RequestBody Projekat projekat){
 		if(!projekatRepository.existsById(projekat.getId())) {
 			return new ResponseEntity<Projekat>(HttpStatus.NO_CONTENT);
 		}
@@ -63,7 +63,7 @@ public class ProjekatRestController {
 	}
 
 	@DeleteMapping("projekat/{id}")
-	public ResponseEntity<Projekat> deleteDobavljac(@PathVariable Integer id){
+	public ResponseEntity<Projekat> deleteProjekat(@PathVariable Integer id){
 		if(!projekatRepository.existsById(id)) {
 			return new ResponseEntity<Projekat>(HttpStatus.NO_CONTENT);
 		}
