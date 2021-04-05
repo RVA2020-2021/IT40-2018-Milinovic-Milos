@@ -5,10 +5,10 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import rva.jpa.Projekat;
+import rva.jpa.Smijer;
 
 @Repository
-public interface ProjekatRepository extends JpaRepository<Projekat, Integer> {
+public interface SmijerRepository extends JpaRepository<Smijer,Integer> {
 
-	Collection<Projekat> findByNazivContainingIgnoreCase(String naziv);
+	Collection<Smijer> findByOznakaContainingIgnoreCase(String oznaka);
 }
