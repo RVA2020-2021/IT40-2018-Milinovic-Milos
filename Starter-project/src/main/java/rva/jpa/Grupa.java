@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @NamedQuery(name="Grupa.findAll", query="SELECT g FROM Grupa g")
 
 public class Grupa implements Serializable {
-	
+//s	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@SequenceGenerator(name="GRUPA_ID_GENERATOR", sequenceName="GRUPA_SEQ", allocationSize = 1)

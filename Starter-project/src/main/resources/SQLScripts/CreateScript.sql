@@ -14,6 +14,7 @@ create table smijer(
 	oznaka varchar(50)
 );
 
+
 CREATE TABLE projekat(
 	id integer not null,
 	naziv varchar(100),

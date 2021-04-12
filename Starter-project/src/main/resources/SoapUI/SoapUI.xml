@@ -16,6 +16,7 @@
          "naziv": "Racunarstvo i automatika",
          "oznaka": "RA"
       }
+      
     }, </con:request><con:originalUri>http://localhost/grupa</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="08d4da4c-6e8a-4a81-8cf1-c6893a59ca64" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Grupa Delete" id="979f234b-9790-4e50-bcb7-d9ab5a3f0fa0"><con:settings/><con:config service="http://localhost:8083" resourcePath="/grupa/{id}" methodName="Method GrupaDelete" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Grupa Delete" id="ec3b4ad7-c760-4199-a5a6-7862965ba6ab" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8083</con:endpoint><con:request>{
       "id":15 ,
       "oznaka": "GR15",

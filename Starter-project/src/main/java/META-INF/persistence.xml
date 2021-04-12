@@ -6,4 +6,4 @@
 		<class>rva.jpa.Smijer</class>
 		<class>rva.jpa.Student</class>
 	</persistence-unit>
-</persistence>
+</persistence> 

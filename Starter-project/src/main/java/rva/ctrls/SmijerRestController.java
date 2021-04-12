@@ -24,7 +24,7 @@ import rva.repository.SmijerRepository;
 @RestController
 @Api(tags = {"Smijer CRUD operacije"})
 public class SmijerRestController {
-	//s
+	
 	@Autowired
 	private SmijerRepository smijerRepository;
 	

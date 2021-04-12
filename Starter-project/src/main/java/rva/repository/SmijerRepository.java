@@ -12,4 +12,3 @@ public interface SmijerRepository extends JpaRepository<Smijer,Integer> {
 
 	Collection<Smijer> findByOznakaContainingIgnoreCase(String oznaka);
 }
-//s

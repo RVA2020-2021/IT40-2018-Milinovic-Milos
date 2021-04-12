@@ -14,6 +14,7 @@ values(nextval('smijer_seq'),'Primjenjeno softversko inzinjerstvo','PR');
 select * from smijer;
 
 
+
 --GRUPA podaci
 
 insert into grupa ("id","oznaka","smijer")

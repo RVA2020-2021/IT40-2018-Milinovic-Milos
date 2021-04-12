@@ -18,7 +18,7 @@ import java.util.List;
 @NamedQuery(name="Projekat.findAll", query="SELECT p FROM Projekat p")
 public class Projekat implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+//s
 	@Id
 	@SequenceGenerator(name="PROJEKAT_ID_GENERATOR", sequenceName="PROJEKAT_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PROJEKAT_ID_GENERATOR")

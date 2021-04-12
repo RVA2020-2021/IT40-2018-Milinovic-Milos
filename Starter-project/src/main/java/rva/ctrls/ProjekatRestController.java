@@ -24,7 +24,7 @@ import rva.repository.ProjekatRepository;
 @RestController
 @Api(tags = {"Projekat CRUD operacije"})
 public class ProjekatRestController {
-	//s
+	
 	
 	@Autowired
 	private ProjekatRepository projekatRepository;
