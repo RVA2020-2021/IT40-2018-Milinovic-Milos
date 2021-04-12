@@ -28,7 +28,7 @@ import rva.repository.GrupaRepository;
 @RestController
 @Api(tags = {"Grupa CRUD operacije"})
 public class GrupaRestController {
-	
+	//s
 	@Autowired
 	private GrupaRepository grupaRepository;
 	

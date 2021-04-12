@@ -25,71 +25,65 @@ public class Projekat implements Serializable {
 	private Integer id;
 
 	private String naziv;
-
 	private String opis;
-
 	private String oznaka;
 
 	//bi-directional many-to-one association to Student
+	
 	@OneToMany(mappedBy="projekat")
 	@JsonIgnore
 	private List<Student> students;
 
 	public Projekat() {
 	}
-
 	public Integer getId() {
 		return this.id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getNaziv() {
 		return this.naziv;
 	}
-
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-
+	
 	public String getOpis() {
 		return this.opis;
 	}
-
+	
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-
+	
 	public String getOznaka() {
 		return this.oznaka;
 	}
-
+	
 	public void setOznaka(String oznaka) {
 		this.oznaka = oznaka;
 	}
-
+	
 	public List<Student> getStudents() {
 		return this.students;
 	}
-
+	
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-
+	
 	public Student addStudent(Student student) {
 		getStudents().add(student);
 		student.setProjekat(this);
-
 		return student;
 	}
-
+	
 	public Student removeStudent(Student student) {
 		getStudents().remove(student);
 		student.setProjekat(null);
-
 		return student;
 	}
+
 
 }

@@ -12,3 +12,4 @@ public interface ProjekatRepository extends JpaRepository<Projekat, Integer> {
 
 	Collection<Projekat> findByNazivContainingIgnoreCase(String naziv);
 }
+//s

@@ -13,3 +13,4 @@ public interface GrupaRepository extends JpaRepository<Grupa, Integer>{
 
 	Collection<Grupa> findByOznakaContainingIgnoreCase(String oznaka);
 }
+//s

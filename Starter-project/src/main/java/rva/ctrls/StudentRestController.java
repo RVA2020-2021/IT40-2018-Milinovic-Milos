@@ -26,7 +26,7 @@ import rva.repository.StudentRepository;
 @RestController
 @Api(tags = {"Student CRUD operacije"})
 public class StudentRestController {
-	
+	//s
 	@Autowired
 	private StudentRepository studentRepository;
 	

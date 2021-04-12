@@ -25,7 +25,6 @@ public class Smijer implements Serializable {
 	private Integer id;
 
 	private String naziv;
-
 	private String oznaka;
 
 	//bi-directional many-to-one association to Grupa
@@ -35,50 +34,38 @@ public class Smijer implements Serializable {
 
 	public Smijer() {
 	}
-
 	public Integer getId() {
 		return this.id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getNaziv() {
 		return this.naziv;
 	}
-
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-
 	public String getOznaka() {
 		return this.oznaka;
 	}
-
 	public void setOznaka(String oznaka) {
 		this.oznaka = oznaka;
 	}
-
 	public List<Grupa> getGrupas() {
 		return this.grupas;
 	}
-
 	public void setGrupas(List<Grupa> grupas) {
 		this.grupas = grupas;
 	}
-
 	public Grupa addGrupa(Grupa grupa) {
 		getGrupas().add(grupa);
 		grupa.setSmijer(this);
-
 		return grupa;
 	}
-
 	public Grupa removeGrupa(Grupa grupa) {
 		getGrupas().remove(grupa);
 		grupa.setSmijer(null);
-
 		return grupa;
 	}
 
