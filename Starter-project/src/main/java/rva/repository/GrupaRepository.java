@@ -11,5 +11,6 @@ import rva.jpa.Grupa;
 @Repository
 public interface GrupaRepository extends JpaRepository<Grupa, Integer>{
 
+	
 	Collection<Grupa> findByOznakaContainingIgnoreCase(String oznaka);
 }

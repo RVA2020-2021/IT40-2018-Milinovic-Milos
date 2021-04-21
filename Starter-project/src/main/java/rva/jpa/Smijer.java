@@ -18,7 +18,7 @@ import java.util.List;
 @NamedQuery(name="Smijer.findAll", query="SELECT s FROM Smijer s")
 public class Smijer implements Serializable {
 	private static final long serialVersionUID = 1L;
-//s
+
 	@Id
 	@SequenceGenerator(name="SMIJER_ID_GENERATOR", sequenceName="SMIJER_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SMIJER_ID_GENERATOR")

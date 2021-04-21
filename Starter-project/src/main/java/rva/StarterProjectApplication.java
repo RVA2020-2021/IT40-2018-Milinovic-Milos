@@ -16,7 +16,7 @@ public class StarterProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StarterProjectApplication.class, args); 
 	}
-//s	
+	
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
