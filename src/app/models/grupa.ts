@@ -1,6 +1,7 @@
+import { Smijer } from './smijer';
+
 export class Grupa {
     id: number;
-    naziv: string;
     oznaka: string;
-    smijer: number;
+    smijer: Smijer;
 }

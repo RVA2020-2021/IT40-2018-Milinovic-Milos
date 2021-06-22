@@ -1,10 +1,13 @@
 import { GrupaService } from '../services/grupa.service';
 import { Grupa } from '../models/grupa';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import { Smijer } from '../models/smijer';
 import { GrupaDialogComponent } from './../dialogs/grupa-dialog/grupa-dialog/grupa-dialog.component';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -14,10 +17,11 @@ import { GrupaDialogComponent } from './../dialogs/grupa-dialog/grupa-dialog/gru
 })
 export class GrupaComponent implements OnInit, OnDestroy {
 
-
-  displayedColumns = ['id', 'naziv', 'oznaka', 'smijer'];
+  displayedColumns = ['id', 'oznaka', 'smijer', 'actions'];
   dataSource: MatTableDataSource<Grupa>;
   subscription: Subscription;
+  @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private GrupaService: GrupaService,
@@ -37,6 +41,8 @@ export class GrupaComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         // console.log(data);
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
       }),
 
       // tslint:disable-next-line: no-unused-expression
@@ -44,8 +50,8 @@ export class GrupaComponent implements OnInit, OnDestroy {
         console.log(error.name + ' ' + error.message);
       };
   }
-  public openDialog(flag: number, id?: number, naziv?: string, oznaka?: string, smijer?: number) {
-    const dialogRef = this.dialog.open(GrupaDialogComponent, {data: {id, naziv, oznaka, smijer}});
+  public openDialog(flag: number, id?: number, oznaka?: string, smijer?: Smijer) {
+    const dialogRef = this.dialog.open(GrupaDialogComponent, {data: {id, oznaka, smijer}});
     dialogRef.componentInstance.flag = flag;
     dialogRef.afterClosed()
       .subscribe(result => {
@@ -54,6 +60,9 @@ export class GrupaComponent implements OnInit, OnDestroy {
         }
       });
     }
-
-
+    applyFilter(filterValue: string) {
+      filterValue = filterValue.trim();
+      filterValue = filterValue.toLocaleLowerCase();
+      this.dataSource.filter = filterValue;
+    }
 }

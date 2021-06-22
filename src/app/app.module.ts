@@ -16,6 +16,8 @@ import { ProjekatComponent } from './projekat/projekat.component';
 import { SmijerComponent } from './smijer/smijer.component';
 import { StudentComponent } from './student/student.component';
 import { HomeComponent } from './home/home.component';
+import { MatSortModule } from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { AboutComponent } from './about/about.component';
 import { AuthorComponent } from './author/author.component';
 import { MatTableModule } from '@angular/material/table';
@@ -26,6 +28,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { GrupaDialogComponent } from './dialogs/grupa-dialog/grupa-dialog/grupa-dialog.component';
 import { ProjekatDialogComponent } from './dialogs/projekat-dialog/projekat-dialog/projekat-dialog.component';
+import { SmijerDialogComponent } from './dialogs/smijer-dialog/smijer-dialog.component';
+import { StudentDialogComponent } from './dialogs/student-dialog/student-dialog.component';
+import {MatSelectModule} from  '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ import { ProjekatDialogComponent } from './dialogs/projekat-dialog/projekat-dial
     AboutComponent,
     AuthorComponent,
     GrupaDialogComponent,
-    ProjekatDialogComponent
+    ProjekatDialogComponent,
+    SmijerDialogComponent,
+    StudentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +64,10 @@ import { ProjekatDialogComponent } from './dialogs/projekat-dialog/projekat-dial
     MatDialogModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatSelectModule
 
   ],
   providers: [],

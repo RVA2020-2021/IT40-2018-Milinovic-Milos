@@ -1,6 +1,5 @@
-export class Projekat {
+export class Smijer {
     id: number;
     naziv: string;
     oznaka: string;
-    opis: string;
 }

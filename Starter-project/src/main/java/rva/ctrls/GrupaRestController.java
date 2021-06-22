@@ -74,7 +74,7 @@ public class GrupaRestController {
 		return new ResponseEntity<Grupa>(HttpStatus.OK);
 	}
 	
-	@Transactional
+	//@Transactional
 	@DeleteMapping("grupa/{id}")
 	@ApiOperation(value = "Brise grupu iz baze podataka ciji je id prosljedjen kao path varijabla")
 	public ResponseEntity<Grupa> deleteGrupa(@PathVariable("id") Integer id) {

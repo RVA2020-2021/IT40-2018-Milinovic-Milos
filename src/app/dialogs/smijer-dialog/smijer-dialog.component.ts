@@ -1,43 +1,30 @@
-import { Component, OnInit, Inject  } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { GrupaService } from '../../../services/grupa.service';
-import { Grupa } from '../../../models/grupa';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Smijer } from 'src/app/models/smijer';
 import { SmijerService } from 'src/app/services/smijer.service';
 
-
 @Component({
-  selector: 'app-grupa-dialog',
-  templateUrl: './grupa-dialog.component.html',
-  styleUrls: ['./grupa-dialog.component.css']
+  selector: 'app-smijer-dialog',
+  templateUrl: './smijer-dialog.component.html',
+  styleUrls: ['./smijer-dialog.component.css']
 })
-export class GrupaDialogComponent implements OnInit {
+export class SmijerDialogComponent implements OnInit {
 
-  smijerovi: Smijer[];
   public flag: number;
 
   constructor(public snackBar: MatSnackBar,
-              public dialogRef: MatDialogRef<GrupaDialogComponent>,
-              @Inject (MAT_DIALOG_DATA) public data: Grupa,
-              public grupaService: GrupaService,
+              public dialogRef: MatDialogRef<SmijerDialogComponent>,
+              @Inject (MAT_DIALOG_DATA) public data: Smijer,
               public smijerService: SmijerService) { }
 
   ngOnInit(): void {
-    this.smijerService.getAllSmijer()
-      .subscribe(smijerovi => {
-        this.smijerovi = smijerovi;
-      });
-  }
-
-  compareTo(a, b) {
-    return a.id === b.id;
   }
 
   public add(): void {
-    this.grupaService.addGrupa(this.data)
+    this.smijerService.addSmijer(this.data)
       .subscribe(() => {
-        this.snackBar.open('Uspijesno dodana grupa: ' + this.data.id , 'U redu', {
+        this.snackBar.open('Uspijesno dodan smijer: ' + this.data.naziv, 'U redu', {
           duration: 2500
         });
       }),
@@ -51,9 +38,9 @@ export class GrupaDialogComponent implements OnInit {
   }
 
   public update(): void {
-    this.grupaService.updateGrupa(this.data)
+    this.smijerService.updateSmijer(this.data)
       .subscribe(() => {
-        this.snackBar.open('Uspijesno modifikovana grupa: ' + this.data.id , 'U redu', {
+        this.snackBar.open('Uspijesno modifikovan smijer: ' + this.data.naziv, 'U redu', {
           duration: 2500
         });
       }),
@@ -67,9 +54,9 @@ export class GrupaDialogComponent implements OnInit {
   }
 
   public delete(): void {
-    this.grupaService.deleteGrupa(this.data.id)
+    this.smijerService.deleteSmijer(this.data.id)
       .subscribe(() => {
-        this.snackBar.open('Uspijesno obrisana grupa', + this.data.id + 'U redu', {
+        this.snackBar.open('Uspijesno obrisan smijer', + this.data.id + ' U redu', {
           duration: 2500
         });
       }),
@@ -84,11 +71,8 @@ export class GrupaDialogComponent implements OnInit {
 
   public cancel(): void {
     this.dialogRef.close();
-    this.snackBar.open('Odustali ste od izmena!', 'U redu', {
+    this.snackBar.open('Odustali ste od izmjena!', 'U redu', {
       duration: 1000
     });
   }
-
-
-
 }
